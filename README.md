@@ -1,8 +1,8 @@
-## CRUD Relasi Sederhana
-yap, sederhana... kayak warung nasi padang.
-
 ## Panduan
 - Copy `.env.example` menjadi `.env`
-- Ubah pengaturan database
+- Buat database bernama `workshop`
+- Jalankan `composer install`
 - Jalankan `php artisan key:generate`
-- Serve seperti biasa dengan `php artisan serve`
+- Run project dengan `php artisan serve`
+- Jalankan migration `php artisan migrate`
+- Jalankan Seeder `php artisan db:seed`
