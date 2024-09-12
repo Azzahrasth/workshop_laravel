@@ -15,11 +15,12 @@ use App\Http\Controllers\FakultasController;
 |
 */
 
-Route::get('/', [MahasiswaController::class, 'index'])->name('index');
-Route::get('/create', [MahasiswaController::class, 'create'])->name('create');
-Route::post('/store', [MahasiswaController::class, 'store'])->name('store');
-Route::get('/edit/{id}', [MahasiswaController::class, 'edit'])->name('edit');
-Route::post('/update', [MahasiswaController::class, 'update'])->name('update');
-Route::post('/delete/{id}', [MahasiswaController::class, 'delete'])->name('delete');
+Route::get('/', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
+Route::get('/create', [MahasiswaController::class, 'create'])->name('mahasiswa.create');
+Route::post('/store', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
+Route::get('/edit/{id}', [MahasiswaController::class, 'edit'])->name('mahasiswa.edit');
+Route::put('/update/{id}', [MahasiswaController::class, 'update'])->name('mahasiswa.update');
+Route::delete('/delete/{id}', [MahasiswaController::class, 'destroy'])->name('mahasiswa.delete');
 
 Route::get('/find_prodi', [FakultasController::class, 'find_prodi'])->name('find_prodi');
+

@@ -38,7 +38,7 @@ class MahasiswaController extends Controller
             'program_studis_id' => $request->program_studis_id,
         ]);
 
-        return redirect()->route('index');
+        return redirect()->route('mahasiswa.index');
     }
 
     public function edit($id)
@@ -49,22 +49,34 @@ class MahasiswaController extends Controller
         return view('pages.edit', ['mhs' => $mahasiswa, 'prodi' => $prodi]);
     }
 
-    public function update(Request $request)
-    {
-        $mahasiswa = Mahasiswa::findOrFail($request->id);
-        $mahasiswa->nama = $request->nama;
-        $mahasiswa->nim = $request->nim;
-        $mahasiswa->program_studis_id = $request->program_studis_id;
-        $mahasiswa->save();
+ public function update(Request $request, $id)
+{
+    // Validasi input
+    $request->validate([
+        'nama' => 'required|string|max:255',
+        'nim' => 'required|string|max:20',
+        'program_studis_id' => 'required|integer|exists:program_studis,id',
+    ]);
 
-        return redirect()->route('index');
-    }
+    // Temukan mahasiswa berdasarkan ID
+    $mahasiswa = Mahasiswa::findOrFail($id);
 
-    public function delete($id)
+    // Perbarui data mahasiswa
+    $mahasiswa->update([
+        'nama' => $request->nama,
+        'nim' => $request->nim,
+        'program_studis_id' => $request->program_studis_id,
+    ]);
+
+    // Redirect ke route 'index'
+    return redirect()->route('mahasiswa.index');
+}
+
+    public function destroy($id)
     {
         Mahasiswa::findOrFail($id)->delete();
 
-        return redirect()->route('index');
+        return redirect()->route('mahasiswa.index');
     }
     
 }

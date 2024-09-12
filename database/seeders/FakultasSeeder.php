@@ -8,9 +8,6 @@ use App\Models\Fakultas;
 
 class FakultasSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         Fakultas::create([
@@ -22,6 +19,7 @@ class FakultasSeeder extends Seeder
             'nama' => 'Fakultas Matematika dan Ilmu Pengetahuan Alam',
             'dekan' => 'Prof. Dr. Dedi Satria, M.Si.',
         ]);
+        
         
         Fakultas::create([
             'nama' => 'Fakultas Kedokteran',

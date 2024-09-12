@@ -11,9 +11,9 @@ Mahasiswa
             Data Mahasiswa
         </div>
         <div class="col-md-12 card-body">
-            <a href="{{route('create')}}"><button class="btn btn-success mt-1 mb-4">Tambah</button></a>
+            <a href="{{route('mahasiswa.create')}}"><button class="btn btn-success mt-1 mb-4">Tambah</button></a>
 
-            <form action="{{route('index')}}" method="GET">
+            <form action="{{route('mahasiswa.index')}}" method="GET">
                 <div class="col-md-3 input-group mb-3">
                     <input type="text" class="form-control" placeholder="Cari mahasiswa" name="search">
                     <div class="input-group-append">
@@ -40,11 +40,12 @@ Mahasiswa
                     <td>{{$mhs->nim}}</td>
                     <td>{{$mhs->program_studis->nama}}</td>
                     <td class="d-flex justify-content-center">
-                        <a href="{{route('edit', ['id' => $mhs->id])}}">
+                        <a href="{{route('mahasiswa.edit', ['id' => $mhs->id])}}">
                             <button class="btn btn-warning">Edit</button>
                         </a>
-                        <form action="{{route('delete', ['id' => $mhs->id])}}" method="POST" class="mx-1">
+                        <form action="{{route('mahasiswa.delete', ['id' => $mhs->id])}}" method="POST" class="mx-1">
                             @csrf
+                            @method('DELETE')
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
                     </td>

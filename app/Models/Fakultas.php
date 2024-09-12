@@ -15,7 +15,7 @@ class Fakultas extends Model
         'nama',
         'dekan'
     ];
-    // public function program_studis() {
-    //     return $this->hasMany(ProgramStudi::class);
-    // }
+    public function program_studis() {
+        return $this->hasMany(ProgramStudi::class);
+    }
 }

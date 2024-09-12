@@ -23,9 +23,9 @@ class ProgramStudi extends Model
         return $this->hasMany(Mahasiswa::class);
     }
     
-    // public function fakultas()
-    // {
-    //     return $this->belongsTo(Fakultas::class);
-    // }
+    public function fakultas()
+    {
+        return $this->belongsTo(Fakultas::class);
+    }
 
 }

@@ -6,14 +6,14 @@ Create
 
 @section('content')
 <div class="col-md-8 mx-auto my-4">
-    <a href="{{route('index')}}"><button class="btn btn-secondary mt-1 mb-4">Kembali</button></a>
+    <a href="{{route('mahasiswa.index')}}"><button class="btn btn-secondary mt-1 mb-4">Kembali</button></a>
     <div class="card">
     <div class="card-header">
         Tambah Data Mahasiswa
     </div>
     <div class="card-body">
 
-        <form action="{{route('store')}}" method="POST">
+        <form action="{{route('mahasiswa.store')}}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="nama">Nama</label>
